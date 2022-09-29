@@ -5,6 +5,8 @@
  * 1. Introduction to Java helpful.
  */
 
+import static org.junit.Assert.assertEquals;
+
 public abstract class Bag {
     /*
      * TODO: Create the following private instance variables
@@ -143,12 +145,15 @@ public abstract class Bag {
      */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
-        this.capacity = n;
+        this.capacity = this.capacity + n;
         String[] old_contents = this.contents;
         String[] new_capacity_contents = new String[this.capacity];
-        System.arraycopy(old_contents, 0, new_capacity_contents, 0, old_contents.length);
+        for (int i =0; i < old_contents.length; i++){
+            new_capacity_contents[i] = old_contents[i];
+        }
         this.contents = new_capacity_contents;
     }
+
 
     /**
      * Return the details of this Bag.
@@ -174,4 +179,9 @@ public abstract class Bag {
      * We recommend you look at HandBag.java first.
      */
     public abstract void enhance();
+
+    public static void main(String[] args) {
+
+    }
 }
+
