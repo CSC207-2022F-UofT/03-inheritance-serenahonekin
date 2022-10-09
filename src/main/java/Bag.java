@@ -128,21 +128,22 @@ public abstract class Bag {
      * @return the last item added to this bag.
      */
     public String popItem(){
-        String last_item = this.contents[this.numberOfContents - 1];
-        this.contents[this.numberOfContents - 1] = null;
-        this.numberOfContents --;
-        return last_item;
-    }
+        if (this.numberOfContents >= 1) {
+            String last_item = this.contents[this.numberOfContents - 1];
+            this.contents[this.numberOfContents - 1] = null;
+            this.numberOfContents--;
+            return last_item;
+        } else {
+            return null;
+        }
+        }
 
 
-
-
-
-    /**
-     * Increase this bag's capacity by n.
-     *
-     * @param n the amount to increase this Bag's capacity by
-     */
+        /**
+         * Increase this bag's capacity by n.
+         *
+         * @param n the amount to increase this Bag's capacity by
+         */
     public void increaseCapacity(int n) {
         // TODO: Implement this method.
         this.capacity = this.capacity + n;
